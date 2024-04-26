@@ -1,47 +1,85 @@
 <template>
-  <h1>Mengty Reaction Timer</h1>
-  <button @click="start" :disabled="isPlaying">Play</button>
-  <BlockModal v-if="isPlaying" :delay="delay" @end="endGame"/>
-  <Results v-if="showResults" :score="score"/>
+  <div class="container">
+    <div class="item">
+      <h1>Mengty Reaction Timer</h1>
+      <button class="btn" @click="start" :disabled="isPlaying">Play</button>
+      <BlockModal v-if="isPlaying" :delay="delay" @end="endGame" />
+      <Results v-if="showResults" :score="score" />
+    </div>
+  </div>
 </template>
 
 <script>
-import BlockModal from './components/BlockModal.vue'
-import Results from './components/Results.vue'
+import BlockModal from "./components/BlockModal.vue";
+import Results from "./components/Results.vue";
 
 export default {
   name: "App",
-  components:{BlockModal, Results},
+  components: { BlockModal, Results },
   data() {
     return {
       isPlaying: false,
       delay: null,
       score: null,
-      showResults: false
+      showResults: false,
     };
   },
   methods: {
     start() {
-      this.delay = 2000 + Math.random() * 5000
-      this.isPlaying = true
-      this.showResults = false
+      this.delay = 2000 + Math.random() * 5000;
+      this.isPlaying = true;
+      this.showResults = false;
     },
-    endGame(reactionTime){
-      this.score = reactionTime
-      this.isPlaying=false
-      this.showResults = true
+    endGame(reactionTime) {
+      this.score = reactionTime;
+      this.isPlaying = false;
+      this.showResults = true;
     },
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #444;
-  margin-top: 60px;
+*,body{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+  position: fixed;
+  background-color: #ffffff;
+}
+.container > .item{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid green;
+  padding: 100px;
+  transform: rotate(3deg);
+  transition: all ease-in-out 0.4s;
+  
+}
+.container > .item:hover{
+  transform: rotate(-3deg)
+
+}
+.btn {
+  margin-top: 30px;
+  background-color: aquamarine;
+  border: 2px solid aquamarine;
+  padding: 10px 30px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.btn:hover {
+  background-color: #ffff;
 }
 </style>
