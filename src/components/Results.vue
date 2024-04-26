@@ -1,7 +1,7 @@
 <template>
   <div class="result">
-    <h1>Reaction time:  {{ score }} ms</h1>
-  <p class="rank">{{ rank }}</p>
+    <h1>Reaction time: {{ score }} ms</h1>
+    <p class="rank">{{ rank }}</p>
   </div>
 </template>
 
@@ -27,14 +27,15 @@ export default {
 </script>
 
 <style>
-.result{
+.result {
   margin-top: 20px;
 }
-.result > h1{
+.result > h1 {
   font-size: 1.2rem;
   margin-bottom: 10px;
   font-weight: bold;
-}.result > p{
+}
+.result > p {
   font-size: 1.2rem;
   text-align: center;
 }

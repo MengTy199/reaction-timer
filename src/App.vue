@@ -45,14 +45,13 @@ export default {
   padding: 0;
 }
 .container{
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   justify-content: center;
   height: 100vh;
   width: 100%;
   align-items: center;
-  position: fixed;
   background-color: #ffffff;
 }
 .container > .item{
@@ -64,7 +63,19 @@ export default {
   padding: 100px;
   transform: rotate(3deg);
   transition: all ease-in-out 0.4s;
+  width: auto;
   
+}
+@media only screen and (max-width: 600px) {
+  .container{
+    width: 80%;
+  }
+  .item {
+    width: 60%;
+  }
+  .item > h1{
+    font-size: 1.2rem;
+  }
 }
 .container > .item:hover{
   transform: rotate(-3deg)
